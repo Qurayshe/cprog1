@@ -29,6 +29,6 @@ vec.push_back(42); // Allocated directly inside 'stack_buf'!
 
 ---
 
-## 🔬 Hands-On Program
+## Hands-On Program
 
 Open and compile [`22_pmr_arena.cpp`](file:///c:/Users/kkhoie/Downloads/cprog1/22_pmr_and_custom_allocators/22_pmr_arena.cpp) to see custom memory resources and zero-heap `std::pmr` vector allocations.

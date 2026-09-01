@@ -56,6 +56,6 @@ Every "instance" contains a pointer to a struct of function pointers. Calling `s
 
 ---
 
-## 🔬 Hands-On Program
+## Hands-On Program
 
 Open and compile [`07_function_pointers_and_vtables.c`](file:///c:/Users/kkhoie/Downloads/cprog1/07_function_pointers_and_vtables/07_function_pointers_and_vtables.c) to see generic callbacks, a jump table calculator, and a complete polymorphic Shape/Device driver vtable implementation.

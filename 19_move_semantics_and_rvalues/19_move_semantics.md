@@ -47,6 +47,6 @@ It is simply a compile-time cast that transforms an lvalue `x` into an rvalue re
 
 ---
 
-## 🔬 Hands-On Program
+## Hands-On Program
 
 Open and compile [`19_move_semantics.cpp`](file:///c:/Users/kkhoie/Downloads/cprog1/19_move_semantics_and_rvalues/19_move_semantics.cpp) to see live tracking of deep copies vs instant move pointer transfers.

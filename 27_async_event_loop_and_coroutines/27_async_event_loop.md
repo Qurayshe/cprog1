@@ -52,6 +52,6 @@ When you `await`, the function saves its local variables to the struct, sets `st
 
 ---
 
-## 🔬 Hands-On Program
+## Hands-On Program
 
 Open and compile [`27_micro_event_loop.c`](file:///c:/Users/kkhoie/Downloads/cprog1/27_async_event_loop_and_coroutines/27_micro_event_loop.c) to see a complete non-blocking event loop and stackless coroutine state machine in pure C.

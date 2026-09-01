@@ -40,6 +40,6 @@ Socket Buffer: [ 'G' | 'E' | 'T' | ' ' | '/' | 'a' | 'p' | 'i' | ... ]
 
 ---
 
-## 🔬 Hands-On Program
+## Hands-On Program
 
 Open and compile [`30_raw_http_parser.c`](file:///c:/Users/kkhoie/Downloads/cprog1/30_http_and_socket_networking/30_raw_http_parser.c) to see a zero-copy HTTP request parser implemented in pure C.

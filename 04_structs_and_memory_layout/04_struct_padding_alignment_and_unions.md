@@ -79,7 +79,7 @@ struct StatusRegister {
 
 ---
 
-## 🔬 Hands-On Programs
+## Hands-On Programs
 
 1. [`04_struct_alignment.c`](file:///c:/Users/kkhoie/Downloads/cprog1/04_structs_and_memory_layout/04_struct_alignment.c): Byte-by-byte memory dumping of unaligned, reordered, and `#pragma pack(1)` structs.
 2. [`04_unions_and_bitfields.c`](file:///c:/Users/kkhoie/Downloads/cprog1/04_structs_and_memory_layout/04_unions_and_bitfields.c): Floating-point bit inspection via unions and compact hardware status flag manipulation using bitfields.

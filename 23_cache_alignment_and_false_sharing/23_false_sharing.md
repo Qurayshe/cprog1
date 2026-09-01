@@ -36,6 +36,6 @@ Now, Core 1 and Core 2 operate on completely independent hardware cache lines wi
 
 ---
 
-## 🔬 Hands-On Program
+## Hands-On Program
 
 Open and compile [`23_false_sharing_benchmark.cpp`](file:///c:/Users/kkhoie/Downloads/cprog1/23_cache_alignment_and_false_sharing/23_false_sharing_benchmark.cpp) to see how `alignas(64)` eliminates false sharing across concurrent threads.

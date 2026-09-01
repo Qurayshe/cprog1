@@ -33,6 +33,6 @@ Ring Buffer Slots (Capacity = 4)
 
 ---
 
-## 🔬 Hands-On Program
+## Hands-On Program
 
 Open and compile [`24_spsc_ring_buffer.cpp`](file:///c:/Users/kkhoie/Downloads/cprog1/24_lock_free_spsc_ring_buffer/24_spsc_ring_buffer.cpp) to see a complete, high-performance Lock-Free SPSC Queue streaming 1,000,000 messages across threads in pure C++.

@@ -89,6 +89,6 @@ The OS kernel configures your process's **Page Table to point directly to the OS
 
 ---
 
-## 🔬 Hands-On Program
+## Hands-On Program
 
 Open and compile [`13_virtual_memory_pages.c`](file:///c:/Users/kkhoie/Downloads/cprog1/13_virtual_memory_and_mmap/13_virtual_memory_pages.c) to inspect page boundaries, page offsets, and virtual memory alignment math.

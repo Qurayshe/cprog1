@@ -40,6 +40,6 @@ After Allocating 1 Object (Returns Slot 0 to caller):
 
 ---
 
-## 🔬 Hands-On Program
+## Hands-On Program
 
 Compile and run [`12_pool_allocator.c`](file:///c:/Users/kkhoie/Downloads/cprog1/12_advanced_memory_allocators/12_pool_allocator.c) to see a complete, industrial-grade implementation of a Fixed-Size Memory Pool.

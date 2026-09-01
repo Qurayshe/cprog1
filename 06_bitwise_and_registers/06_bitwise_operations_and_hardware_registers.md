@@ -71,7 +71,7 @@ In embedded systems and device drivers, hardware registers are mapped to physica
 
 ---
 
-## 🔬 Hands-On Programs
+## Hands-On Programs
 
 1. [`06_bitwise_manipulation.c`](file:///c:/Users/kkhoie/Downloads/cprog1/06_bitwise_and_registers/06_bitwise_manipulation.c): Setting, clearing, toggling, bit extraction, and binary bit printing.
 2. [`06_endianness_and_registers.c`](file:///c:/Users/kkhoie/Downloads/cprog1/06_bitwise_and_registers/06_endianness_and_registers.c): Hardware endianness detection, byte-swapping macros, and simulated hardware UART peripheral control.

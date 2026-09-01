@@ -65,6 +65,6 @@ Row-major traversal is often **5x to 20x faster** on modern hardware simply beca
 
 ---
 
-## 🔬 Hands-On Program
+## Hands-On Program
 
 Open and compile [`10_cache_locality_benchmark.c`](file:///c:/Users/kkhoie/Downloads/cprog1/10_cache_and_simd/10_cache_locality_benchmark.c) to run a live micro-benchmark measuring the execution time differences between cache-friendly and cache-thrashing access patterns.

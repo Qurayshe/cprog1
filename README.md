@@ -4,7 +4,7 @@ Welcome to the **C & Low-Level Systems Programming** curriculum. This repository
 
 ---
 
-## 🎯 Complete 4-Part Curriculum Map
+## Complete 4-Part Curriculum Map
 
 ### Part 1: C Foundations & Core Memory Mechanics
 
@@ -66,7 +66,7 @@ Welcome to the **C & Low-Level Systems Programming** curriculum. This repository
 
 ---
 
-## 🛠️ How to Compile
+## How to Compile
 
 ```bash
 # C Programs (Modules 01 - 16, 25 - 32):

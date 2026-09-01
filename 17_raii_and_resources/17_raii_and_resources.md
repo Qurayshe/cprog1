@@ -40,6 +40,6 @@ void thread_safe_work() {
 
 ---
 
-## 🔬 Hands-On Program
+## Hands-On Program
 
 Open and compile [`17_raii_demo.cpp`](file:///c:/Users/kkhoie/Downloads/cprog1/17_raii_and_resources/17_raii_demo.cpp) to see custom RAII wrappers for raw file pointers and scoped memory buffers.

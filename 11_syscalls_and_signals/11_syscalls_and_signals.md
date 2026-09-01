@@ -102,7 +102,7 @@ Main Thread:   [ Instruction A ] -> [ Instruction B ] ------------------------> 
 Signal Handler:                       [ handle_sigint() ] -> [ return from handler ] -+
 ```
 
-### ⚠️ The Reentrancy Danger (Why `printf` and `malloc` crash in handlers):
+### The Reentrancy Danger (Why `printf` and `malloc` crash in handlers):
 If the main thread is in the middle of executing `malloc()`, it holds an internal heap mutex lock.
 If a signal arrives and the signal handler also calls `malloc()` or `printf()`:
 1. The handler attempts to acquire the heap lock already held by the same thread.
@@ -121,6 +121,6 @@ void handle_sigint(int signum) {
 
 ---
 
-## 🔬 Hands-On Program
+## Hands-On Program
 
 Open and compile [`11_signals_and_syscalls.c`](file:///c:/Users/kkhoie/Downloads/cprog1/11_syscalls_and_signals/11_signals_and_syscalls.c) to see clean signal handling, graceful shutdown flags, and low-level I/O mechanics.

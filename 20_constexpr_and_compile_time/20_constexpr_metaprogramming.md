@@ -30,6 +30,6 @@ In game development, audio processing, and cryptography, lookup tables (LUTs) ar
 
 ---
 
-## 🔬 Hands-On Program
+## Hands-On Program
 
 Open and compile [`20_constexpr_demo.cpp`](file:///c:/Users/kkhoie/Downloads/cprog1/20_constexpr_and_compile_time/20_constexpr_demo.cpp) to see compile-time string hashing and precomputed trigonometric lookup tables.

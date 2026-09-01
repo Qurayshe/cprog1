@@ -96,7 +96,7 @@ Low Memory
 
 ---
 
-## 🔬 Hands-On Programs
+## Hands-On Programs
 
 1. [`02_pointer_basics.c`](file:///c:/Users/kkhoie/Downloads/cprog1/02_memory_and_pointers/02_pointer_basics.c): Addresses, dereferencing, pass-by-reference, and swap functions.
 2. [`02_stack_inspection.c`](file:///c:/Users/kkhoie/Downloads/cprog1/02_memory_and_pointers/02_stack_inspection.c): Live inspection of stack growth, variable addresses across nested function calls, and stack frame lifetime.

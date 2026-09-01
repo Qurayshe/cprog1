@@ -61,6 +61,6 @@ Now adding a color only requires adding **one single line** to `COLOR_TABLE`!
 
 ---
 
-## 🔬 Hands-On Program
+## Hands-On Program
 
 Open and compile [`14_xmacros_and_codegen.c`](file:///c:/Users/kkhoie/Downloads/cprog1/14_advanced_preprocessor_metaprogramming/14_xmacros_and_codegen.c) to see X-Macros, token pasting code generators, and stringification in action.

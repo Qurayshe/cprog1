@@ -6,7 +6,7 @@ This final module connects all 32 modules of the curriculum into a single **unif
 
 ---
 
-## 🗺️ The Complete Execution Timeline
+## The Complete Execution Timeline
 
 ```
 [ STEP 1: SHELL & SYSCALLS ] (Module 11)
@@ -46,7 +46,7 @@ This final module connects all 32 modules of the curriculum into a single **unif
 
 ---
 
-## 🏆 You Have Mastered the Entire Stack!
+## You Have Mastered the Entire Stack!
 
 You now understand:
 1. **The Bits & Bytes:** Two's complement, bitwise arithmetic, and endianness.
@@ -57,6 +57,6 @@ You now understand:
 
 ---
 
-## 🔬 Hands-On Program
+## Hands-On Program
 
 Open and compile [`32_system_trace_analyzer.c`](file:///c:/Users/kkhoie/Downloads/cprog1/32_grand_unified_software_architecture/32_system_trace_analyzer.c) to run an interactive software execution tracer simulating this full journey.

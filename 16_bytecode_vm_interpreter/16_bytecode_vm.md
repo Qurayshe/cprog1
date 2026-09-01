@@ -45,6 +45,6 @@ while (running) {
 
 ---
 
-## 🔬 Hands-On Program
+## Hands-On Program
 
 Open and compile [`16_stack_vm.c`](file:///c:/Users/kkhoie/Downloads/cprog1/16_bytecode_vm_interpreter/16_stack_vm.c) to inspect and run a complete, fully functional Bytecode Virtual Machine written in ~90 lines of clean C.

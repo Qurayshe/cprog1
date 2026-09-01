@@ -41,6 +41,6 @@ process_samples({vec.data() + 10, 20}); // Works on sub-slices!
 
 ---
 
-## 🔬 Hands-On Program
+## Hands-On Program
 
 Open and compile [`21_memory_views.cpp`](file:///c:/Users/kkhoie/Downloads/cprog1/21_views_and_zero_copy/21_memory_views.cpp) to see zero-copy sub-slicing across raw arrays and vectors.

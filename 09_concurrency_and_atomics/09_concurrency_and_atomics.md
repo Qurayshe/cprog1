@@ -53,6 +53,6 @@ void spinlock_unlock(spinlock_t *lock) {
 
 ---
 
-## 🔬 Hands-On Program
+## Hands-On Program
 
 Compile and run [`09_atomics_and_spinlocks.c`](file:///c:/Users/kkhoie/Downloads/cprog1/09_concurrency_and_atomics/09_atomics_and_spinlocks.c) to see compare-and-swap operations, lock-free atomic counters, and custom spinlock mechanics.

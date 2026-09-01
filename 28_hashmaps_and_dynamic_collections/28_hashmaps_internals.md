@@ -39,6 +39,6 @@ Slot 0      Slot 1      Slot 2      ...   Slot 5 ("admin" -> Hash 5)
 
 ---
 
-## 🔬 Hands-On Program
+## Hands-On Program
 
 Open and compile [`28_open_addressing_hashmap.c`](file:///c:/Users/kkhoie/Downloads/cprog1/28_hashmaps_and_dynamic_collections/28_open_addressing_hashmap.c) to see a cache-friendly Open Addressing Hash Map with linear probing and automatic dynamic `realloc` expansion in pure C.

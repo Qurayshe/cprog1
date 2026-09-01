@@ -47,6 +47,6 @@ int result = func(15, 25); // Jumps CPU instruction pointer (RIP) straight into 
 
 ---
 
-## 🔬 Hands-On Program
+## Hands-On Program
 
 Open and compile [`31_mini_jit_compiler.c`](file:///c:/Users/kkhoie/Downloads/cprog1/31_jit_compiler_and_dynamic_codegen/31_mini_jit_compiler.c) to see a real working JIT compiler generating machine code in memory and executing it.

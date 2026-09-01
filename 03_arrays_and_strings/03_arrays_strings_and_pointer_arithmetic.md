@@ -65,6 +65,6 @@ matrix[0][0], matrix[0][1], matrix[0][2], matrix[0][3], matrix[1][0], ...
 
 ---
 
-## 🔬 Hands-On Program
+## Hands-On Program
 
 Compile and run [`03_arrays_and_strings.c`](file:///c:/Users/kkhoie/Downloads/cprog1/03_arrays_and_strings/03_arrays_and_strings.c) to see array indexing mechanics, pointer step sizes across different types, and how to write custom C string utilities without `<string.h>`.

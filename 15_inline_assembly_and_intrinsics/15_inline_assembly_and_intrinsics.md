@@ -44,6 +44,6 @@ When writing micro-benchmarks or device drivers, the compiler optimizer might re
 
 ---
 
-## 🔬 Hands-On Program
+## Hands-On Program
 
 Open and compile [`15_intrinsics_and_cycles.c`](file:///c:/Users/kkhoie/Downloads/cprog1/15_inline_assembly_and_intrinsics/15_intrinsics_and_cycles.c) to inspect bit counting intrinsics and cycle-accurate measurement techniques.

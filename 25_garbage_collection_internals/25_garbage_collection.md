@@ -45,6 +45,6 @@ To clean up memory without programmer intervention, a **Tracing Garbage Collecto
 
 ---
 
-## 🔬 Hands-On Program
+## Hands-On Program
 
 Open and compile [`25_mark_and_sweep_gc.c`](file:///c:/Users/kkhoie/Downloads/cprog1/25_garbage_collection_internals/25_mark_and_sweep_gc.c) to see a complete Mark-and-Sweep Garbage Collector implemented from scratch in pure C.

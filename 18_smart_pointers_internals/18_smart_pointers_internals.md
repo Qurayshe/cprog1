@@ -36,6 +36,6 @@ std::shared_ptr<T> (16 Bytes Total)
 
 ---
 
-## 🔬 Hands-On Program
+## Hands-On Program
 
 Open and compile [`18_smart_pointers.cpp`](file:///c:/Users/kkhoie/Downloads/cprog1/18_smart_pointers_internals/18_smart_pointers.cpp) to see `std::unique_ptr`, `std::shared_ptr`, custom deleters, and an inspection of their physical memory sizes.

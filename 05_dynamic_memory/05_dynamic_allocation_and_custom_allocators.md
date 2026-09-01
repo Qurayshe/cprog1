@@ -56,7 +56,7 @@ Arena Memory Block (e.g., 64 KB Buffer)
 
 ---
 
-## 🔬 Hands-On Programs
+## Hands-On Programs
 
 1. [`05_heap_memory.c`](file:///c:/Users/kkhoie/Downloads/cprog1/05_dynamic_memory/05_heap_memory.c): Dynamic array implementation with resizing (`realloc`), defensive error checking, and cleanup.
 2. [`05_simple_arena.c`](file:///c:/Users/kkhoie/Downloads/cprog1/05_dynamic_memory/05_simple_arena.c): A complete, working, zero-fragmentation Arena Allocator in pure C.

@@ -50,6 +50,6 @@ A **Magic Number** (e.g., `0x544F4F4C` or `'T''O''O''L'`) at offset 0 guarantees
 
 ---
 
-## 🔬 Hands-On Program
+## Hands-On Program
 
 Open and compile [`08_binary_file_records.c`](file:///c:/Users/kkhoie/Downloads/cprog1/08_binary_io_and_serialization/08_binary_file_records.c) to see complete creation, writing, seeking, reading, and header validation of a custom binary file format.

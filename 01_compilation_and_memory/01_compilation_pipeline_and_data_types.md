@@ -68,7 +68,7 @@ When you compile a C program, it passes through four distinct tools that transfo
 
 ---
 
-### 🔍 Concrete Example: What Each File Looks Like
+### Concrete Example: What Each File Looks Like
 
 Suppose we have a minimal `main.c`:
 
@@ -170,7 +170,7 @@ Generated with: `gcc main.o -o main` (or `gcc main.c -o main`)
 
 ---
 
-### 🛠️ Commands to Create All Intermediate Files Step-by-Step
+### Commands to Create All Intermediate Files Step-by-Step
 
 You can run each stage independently or tell GCC to keep all intermediate files automatically:
 
@@ -240,6 +240,6 @@ Addition and subtraction use the exact same CPU silicon circuitry regardless of 
 
 ---
 
-## 🔬 Hands-On Program
+## Hands-On Program
 
 Open and compile [`01_types_and_bits.c`](file:///c:/Users/kkhoie/Downloads/cprog1/01_compilation_and_memory/01_types_and_bits.c) to inspect the byte sizes and memory bit patterns directly on your machine.

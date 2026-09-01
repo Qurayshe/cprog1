@@ -49,6 +49,6 @@ typedef struct {
 
 ---
 
-## 🔬 Hands-On Program
+## Hands-On Program
 
 Open and compile [`26_boxed_types_and_tagging.c`](file:///c:/Users/kkhoie/Downloads/cprog1/26_dynamic_typing_and_boxed_objects/26_boxed_types_and_tagging.c) to see dynamic type resolution, tagged unions, and dynamic dispatch in C.

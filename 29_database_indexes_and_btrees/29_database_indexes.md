@@ -35,6 +35,6 @@ Offsets:  /      |      |      \
 
 ---
 
-## 🔬 Hands-On Program
+## Hands-On Program
 
 Open and compile [`29_page_btree_indexer.c`](file:///c:/Users/kkhoie/Downloads/cprog1/29_database_indexes_and_btrees/29_page_btree_indexer.c) to see a page-based index search engine in pure C.
