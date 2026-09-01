@@ -1,53 +1,43 @@
 # Module 09: Concurrency, Threading & Atomic Operations
 
-When multiple CPU cores execute instructions simultaneously, operations that seem "simple" in C (like `counter++`) are **not atomic** and cause dangerous **Race Conditions**.
+Multi-threading is awesome until two threads touch the same variable at the exact same picosecond! Let's talk about race conditions! (●'◡'●)
 
 ---
 
-## 1. Why `counter++` is Dangerous in Multithreading
+## 1. Why `counter++` is a Lie!
 
-At the assembly level, `counter++` is actually **3 distinct CPU instructions**:
-1. `MOV eax, [counter]`  (Read current value from RAM/cache into CPU register)
-2. `INC eax`             (Increment value in CPU register)
-3. `MOV [counter], eax`  (Write updated value back to RAM/cache)
+In C, `counter++` looks like one operation. But to the CPU silicon, it's actually **3 distinct assembly instructions**:
+1. `MOV eax, [counter]` (Load from RAM into CPU register)
+2. `INC eax`            (Add 1)
+3. `MOV [counter], eax` (Write back to RAM)
 
 ```
 Thread A: [Read 10] -------> [Inc to 11] --------------> [Write 11]
-Thread B:        [Read 10] -----------> [Inc to 11] --------------> [Write 11] (LOST UPDATE!)
+Thread B:        [Read 10] -----------> [Inc to 11] --------------> [Write 11] (LOST UPDATE! (╯°□°)╯︵ ┻━┻)
 ```
-Both threads incremented, but the final value in memory is 11 instead of 12!
+Both threads did an increment, but the result is 11 instead of 12!
 
 ---
 
-## 2. C11 Atomics (`<stdatomic.h>`)
+## 2. The Fix: C11 Atomics (`<stdatomic.h>`)
 
-C11 introduced standard atomic types and memory order operations. An **atomic operation** executes as a single, indivisible hardware transaction at the CPU level using bus locking or cache-coherence protocols (`LOCK CMPXCHG` on x86).
-
-### Key Functions:
+Atomic operations execute as an indivisible hardware transaction on the CPU bus:
 - `atomic_int counter;`
 - `atomic_fetch_add(&counter, 1);`
-- `atomic_load(&counter);`
-- `atomic_store(&counter, val);`
-- `atomic_compare_exchange_strong(&counter, &expected, desired);` (CAS - Compare-And-Swap)
+- `atomic_compare_exchange_strong(&target, &expected, desired);` (CAS!)
 
 ---
 
-## 3. Building a Spinlock from Scratch with Compare-And-Swap (CAS)
+## 3. Building a Spinlock with Compare-And-Swap (CAS)
 
-A **Spinlock** is a low-level synchronization primitive that repeatedly polls in a tight loop until a lock becomes available:
-
+A **Spinlock** loops in a tight poll until the lock is released:
 ```c
 typedef atomic_bool spinlock_t;
 
 void spinlock_lock(spinlock_t *lock) {
-    // Repeatedly try to change false -> true
     while (atomic_exchange(lock, true)) {
-        // CPU yield or pause instruction
+        // Spin-wait! (o゜▽゜)o
     }
-}
-
-void spinlock_unlock(spinlock_t *lock) {
-    atomic_store(lock, false);
 }
 ```
 
@@ -55,4 +45,4 @@ void spinlock_unlock(spinlock_t *lock) {
 
 ## Hands-On Program
 
-Compile and run [`09_atomics_and_spinlocks.c`](file:///c:/Users/kkhoie/Downloads/cprog1/09_concurrency_and_atomics/09_atomics_and_spinlocks.c) to see compare-and-swap operations, lock-free atomic counters, and custom spinlock mechanics.
+Check out [`09_atomics_and_spinlocks.c`](file:///c:/Users/kkhoie/Downloads/cprog1/09_concurrency_and_atomics/09_atomics_and_spinlocks.c) for lock-free counters, CAS demonstrations, and custom spinlocks in action! (*^▽^*)

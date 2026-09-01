@@ -1,18 +1,17 @@
 # Module 02: Pointers & The Call Stack
 
-Pointers are often considered the hardest part of C, but they are conceptually simple once you visualize physical memory.
+Pointers have a scary reputation on forum threads, but they're actually super simple once you picture memory as a giant row of numbered lockers! (●'◡'●)
 
 ---
 
 ## 1. What is Memory?
 
-Think of your computer's RAM as an enormous array of contiguous 1-byte storage lockers.
-Each locker has a unique numerical label: its **Memory Address**.
+Think of your RAM as a giant array of 1-byte storage lockers. Every single locker has a numeric address:
 
 ```
-Address (Hex):    0x1000    0x1001    0x1002    0x1003    0x1004
+Locker Address:  0x1000    0x1001    0x1002    0x1003    0x1004
                +---------+---------+---------+---------+---------+
-Value (Bytes): |  0x42   |  0x00   |  0x1A   |  0xFF   |  0x05   |
+Byte Value:    |  0x42   |  0x00   |  0x1A   |  0xFF   |  0x05   |
                +---------+---------+---------+---------+---------+
 ```
 
@@ -20,10 +19,10 @@ Value (Bytes): |  0x42   |  0x00   |  0x1A   |  0xFF   |  0x05   |
 
 ## 2. What is a Pointer?
 
-A **Pointer** is simply a variable whose stored value is a **Memory Address** of another variable.
+A **pointer** is literally just a variable that holds the locker address of another variable! That's it! (o゜▽゜)o
 
 ```c
-int x = 42;      // Allocated at some memory address, e.g., 0x7FFF0010
+int x = 42;      // Lives at locker 0x7FFF0010
 int *p = &x;     // 'p' holds the number 0x7FFF0010
 ```
 
@@ -33,70 +32,47 @@ Address:     0x7FFF0000                 0x7FFF0010
 Value:     [ 0x7FFF0010 ] ------------> [    42     ]
 ```
 
-### The Two Fundamental Operators:
-1. **Address-Of (`&`)**: "Where does this variable live?"
-   - `&x` yields the memory address of `x`.
-2. **Dereference (`*`)**: "What value lives at this address?"
-   - `*p` reads or writes the memory location pointed to by `p`.
+### The Two Big Operators:
+- `&x` -> **Address-of:** "Hey, where does `x` live?"
+- `*p` -> **Dereference:** "Go to the address inside `p` and read/write the value there!"
 
 ---
 
-## 3. Pointer Types & `void*`
+## 3. Generic Pointers: `void*`
 
-Why do pointers need types if all 64-bit addresses are just 8-byte numbers?
-1. **Dereferencing Width**: When you do `*p`, the compiler needs to know how many bytes to read/write (1 byte for `char*`, 4 bytes for `int*`, 8 bytes for `double*`).
-2. **Pointer Arithmetic**: `p + 1` advances the address by `sizeof(*p)` bytes, not necessarily 1 byte.
-
-### The `void*` (Generic Pointer):
-A `void*` can hold any memory address, but **cannot be dereferenced directly** because its width is unknown. You must cast it to a concrete type before dereferencing:
+A `void*` is a wildcard pointer. It can hold any address, but since the compiler doesn't know how big the target is, you can't dereference it until you cast it!
 ```c
 void *generic = &x;
-int value = *(int*)generic; // Cast required
+int val = *(int*)generic; // Cast required! (¬‿¬)
 ```
 
 ---
 
-## 4. The Stack & Function Call Frames
+## 4. The Stack & Call Frames
 
-The **Stack** is managed automatically by the CPU and compiler.
-
-Whenever a function is called:
-1. A new **Stack Frame** (or Activation Record) is pushed onto the stack.
-2. The frame holds:
-   - Function arguments
-   - Local variables
-   - The Return Address (where to resume execution when the function exits)
-3. When the function returns, its frame is popped (the stack pointer `RSP`/`ESP` moves back).
+Every time you call a function, the CPU pushes a **Stack Frame** (local variables, arguments, return address). When the function returns, poof, the frame is popped!
 
 ```
 High Memory
 +------------------------------------+
-| main() stack frame                 |
+| main() frame                       |
 |   - int main_var                   |
 +------------------------------------+
-| calculate() stack frame            | <-- Function called
+| calculate() frame                  | <-- Function called!
 |   - int arg1, arg2                 |
-|   - int local_result               |
-|   - Return address to main()       |
-+------------------------------------+ <-- Stack Pointer (RSP)
-| (Available unused stack space)     |
-v Grows Downward                     |
+|   - Return address back to main    |
++------------------------------------+ <-- Stack pointer (RSP)
+| (Available space)                  |
+v Grows DOWNWARD                     |
 Low Memory
 ```
 
-> [!CAUTION]
-> **The Classic Dangling Stack Pointer Bug:**
-> Never return a pointer to a local variable!
-> ```c
-> int* bad_function(void) {
->     int temp = 100;
->     return &temp; // DANGER: 'temp' memory is invalidated immediately upon return!
-> }
-> ```
+> Watch out for the classic oopsie: (╯°□°)╯︵ ┻━┻
+> Never return a pointer to a local stack variable! Once the function returns, that memory is wiped/reused!
 
 ---
 
 ## Hands-On Programs
 
-1. [`02_pointer_basics.c`](file:///c:/Users/kkhoie/Downloads/cprog1/02_memory_and_pointers/02_pointer_basics.c): Addresses, dereferencing, pass-by-reference, and swap functions.
-2. [`02_stack_inspection.c`](file:///c:/Users/kkhoie/Downloads/cprog1/02_memory_and_pointers/02_stack_inspection.c): Live inspection of stack growth, variable addresses across nested function calls, and stack frame lifetime.
+1. [`02_pointer_basics.c`](file:///c:/Users/kkhoie/Downloads/cprog1/02_memory_and_pointers/02_pointer_basics.c): Dereferencing, swapping via pass-by-reference, and generic memory dumping.
+2. [`02_stack_inspection.c`](file:///c:/Users/kkhoie/Downloads/cprog1/02_memory_and_pointers/02_stack_inspection.c): Live inspection of stack growth direction and frame addresses!

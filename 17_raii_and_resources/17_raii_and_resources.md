@@ -1,40 +1,25 @@
 # Module 17: RAII & Deterministic Resource Management
 
-In C, every resource you acquire (`malloc`, `fopen`, `socket`, `pthread_mutex_lock`) requires manual cleanup. If a function returns early on error, memory leaks and deadlocks occur.
-
-**RAII (Resource Acquisition Is Initialization)** is the foundational idiom of modern C++ systems programming.
-
----
-
-## 1. The Core RAII Principle
-
-1. **Acquire in Constructor:** Acquire the resource when the object is initialized.
-2. **Release in Destructor:** Release the resource inside `~Class()`.
-3. **Bind to Stack Scope:** When the object leaves its stack scope (via normal return, `break`, or exception), the CPU **guarantees** the destructor will execute automatically.
-
-```cpp
-void process_file() {
-    FileHandle file("data.bin", "rb"); // Acquired
-    if (!file.is_valid()) return;      // Destructor called automatically!
-
-    // ... do work ...
-} // Destructor called automatically here!
-```
+Tired of manually writing `fclose()` and `free()` everywhere?
+RAII (Resource Acquisition Is Initialization) is the best superpower of modern C++! (●'◡'●)
 
 ---
 
-## 2. RAII Mutex Locking: `std::lock_guard`
+## 1. The Core Rule of RAII
 
-In C, releasing a mutex requires calling `unlock` before every single `return` path.
-In C++, `std::lock_guard` locks upon creation and unlocks when going out of scope:
+1. **Grab resource in Constructor** (`FileHandle file("data.bin");`)
+2. **Release resource in Destructor** (`~FileHandle() { fclose(handle); }`)
+3. **Let the stack do the work!** When the object goes out of scope, the destructor runs **automatically**, even during early returns or exceptions! q(≧▽≦q)
 
+---
+
+## 2. RAII Mutex Locks (`std::lock_guard`)
+
+No more forgetting to unlock a mutex before returning:
 ```cpp
-std::mutex mtx;
-
 void thread_safe_work() {
-    std::lock_guard<std::mutex> lock(mtx); // Mutex acquired
-    // Critical section
-    if (error_condition) return; // Mutex safely released automatically!
+    std::lock_guard<std::mutex> lock(mtx); // Locked!
+    if (error_condition) return;          // Safely unlocked automatically! (*^▽^*)
 }
 ```
 
@@ -42,4 +27,4 @@ void thread_safe_work() {
 
 ## Hands-On Program
 
-Open and compile [`17_raii_demo.cpp`](file:///c:/Users/kkhoie/Downloads/cprog1/17_raii_and_resources/17_raii_demo.cpp) to see custom RAII wrappers for raw file pointers and scoped memory buffers.
+Open [`17_raii_demo.cpp`](file:///c:/Users/kkhoie/Downloads/cprog1/17_raii_and_resources/17_raii_demo.cpp) to see custom scoped file handles and automatic stack unwinding! (≧∇≦)ﾉ

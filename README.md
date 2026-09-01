@@ -1,14 +1,15 @@
-# C & Systems Programming Mastery Guide
+# C & Systems Programming Guide (IRC / Web Forum Edition)
 
-Welcome to the **C & Low-Level Systems Programming** curriculum. This repository is a self-contained, hands-on series spanning foundational C memory mechanics, advanced operating systems programming, modern zero-cost C++, and high-level architectural deconstructions.
+Hey there! Welcome to the ultimate low-level systems & C programming journey! (●'◡'●)
+We're gonna go all the way from raw binary bits and pointer magic, through kernel syscalls and modern zero-cost C++, all the way up to reverse-engineering how Python, JS, and databases actually work under the hood! q(≧▽≦q)
 
 ---
 
 ## Complete 4-Part Curriculum Map
 
-### Part 1: C Foundations & Core Memory Mechanics
+### Part 1: C Foundations & Core Memory Mechanics (*^▽^*)
 
-| Module | Topic | Concepts Covered | Code Example |
+| Module | Topic | What We're Learning | Code Example |
 | :--- | :--- | :--- | :--- |
 | **[01](file:///c:/Users/kkhoie/Downloads/cprog1/01_compilation_and_memory/01_compilation_pipeline_and_data_types.md)** | **Compilation & Data Types** | Preprocessor, Compiler, Assembler, Linker, `.i`/`.s`/`.o`, Two's Complement, Wraparound | [`01_types_and_bits.c`](file:///c:/Users/kkhoie/Downloads/cprog1/01_compilation_and_memory/01_types_and_bits.c) |
 | **[02](file:///c:/Users/kkhoie/Downloads/cprog1/02_memory_and_pointers/02_pointers_and_stack_memory.md)** | **Pointers & The Stack** | Address space, `&` and `*`, Pointer variables, Stack frames, Function calls, `void*` | [`02_pointer_basics.c`](file:///c:/Users/kkhoie/Downloads/cprog1/02_memory_and_pointers/02_pointer_basics.c)<br>[`02_stack_inspection.c`](file:///c:/Users/kkhoie/Downloads/cprog1/02_memory_and_pointers/02_stack_inspection.c) |
@@ -21,14 +22,14 @@ Welcome to the **C & Low-Level Systems Programming** curriculum. This repository
 
 ---
 
-### Part 2: Advanced Systems Programming
+### Part 2: Advanced Systems Programming (o゜▽゜)o
 
-| Module | Topic | Concepts Covered | Code Example |
+| Module | Topic | What We're Learning | Code Example |
 | :--- | :--- | :--- | :--- |
 | **[09](file:///c:/Users/kkhoie/Downloads/cprog1/09_concurrency_and_atomics/09_concurrency_and_atomics.md)** | **Concurrency & Atomics** | Memory models, race conditions, atomic operations (`stdatomic.h`), spinlocks, lock-free patterns | [`09_atomics_and_spinlocks.c`](file:///c:/Users/kkhoie/Downloads/cprog1/09_concurrency_and_atomics/09_atomics_and_spinlocks.c) |
 | **[10](file:///c:/Users/kkhoie/Downloads/cprog1/10_cache_and_simd/10_cache_locality_and_simd.md)** | **CPU Cache & Hardware Locality** | L1/L2/L3 cache lines (64B), spatial vs temporal locality, cache-friendly algorithms, SIMD concept | [`10_cache_locality_benchmark.c`](file:///c:/Users/kkhoie/Downloads/cprog1/10_cache_and_simd/10_cache_locality_benchmark.c) |
 | **[11](file:///c:/Users/kkhoie/Downloads/cprog1/11_syscalls_and_signals/11_syscalls_and_signals.md)** | **OS System Calls & Signals** | User space vs Kernel transitions, file descriptors, asynchronous signal handling, reentrancy | [`11_signals_and_syscalls.c`](file:///c:/Users/kkhoie/Downloads/cprog1/11_syscalls_and_signals/11_signals_and_syscalls.c) |
-| **[12](file:///c:/Users/kkhoie/Downloads/cprog1/12_advanced_memory_allocators/12_advanced_allocators.md)** | **Pool & Free-List Allocators** | Fixed-size memory pools, embedded free lists, $O(1)$ malloc/free with zero external fragmentation | [`12_pool_allocator.c`](file:///c:/Users/kkhoie/Downloads/cprog1/12_advanced_memory_allocators/12_pool_allocator.c) |
+| **[12](file:///c:/Users/kkhoie/Downloads/cprog1/12_advanced_memory_allocators/12_advanced_allocators.md)** | **Pool & Free-List Allocators** | Fixed-size memory pools, embedded free lists, O(1) malloc/free with zero external fragmentation | [`12_pool_allocator.c`](file:///c:/Users/kkhoie/Downloads/cprog1/12_advanced_memory_allocators/12_pool_allocator.c) |
 | **[13](file:///c:/Users/kkhoie/Downloads/cprog1/13_virtual_memory_and_mmap/13_virtual_memory_and_mmap.md)** | **Virtual Memory & Zero-Copy I/O** | Page tables, 4KB memory pages, page faults, memory-mapped files (`mmap`), zero-copy streaming | [`13_virtual_memory_pages.c`](file:///c:/Users/kkhoie/Downloads/cprog1/13_virtual_memory_and_mmap/13_virtual_memory_pages.c) |
 | **[14](file:///c:/Users/kkhoie/Downloads/cprog1/14_advanced_preprocessor_metaprogramming/14_macros_and_metaprogramming.md)** | **Preprocessor Metaprogramming** | Stringification (`#`), Token pasting (`##`), Variadic macros, X-Macros for automatic code generation | [`14_xmacros_and_codegen.c`](file:///c:/Users/kkhoie/Downloads/cprog1/14_advanced_preprocessor_metaprogramming/14_xmacros_and_codegen.c) |
 | **[15](file:///c:/Users/kkhoie/Downloads/cprog1/15_inline_assembly_and_intrinsics/15_inline_assembly_and_intrinsics.md)** | **Assembly & CPU Intrinsics** | Compiler intrinsics (`popcount`, `clz`), CPU cycle counter (`rdtsc`), memory barriers & volatile | [`15_intrinsics_and_cycles.c`](file:///c:/Users/kkhoie/Downloads/cprog1/15_inline_assembly_and_intrinsics/15_intrinsics_and_cycles.c) |
@@ -36,13 +37,13 @@ Welcome to the **C & Low-Level Systems Programming** curriculum. This repository
 
 ---
 
-### Part 3: Modern C++ & Zero-Cost Systems Engineering
+### Part 3: Modern C++ & Zero-Cost Systems Engineering (≧∇≦)ﾉ
 
-| Module | Topic | Concepts Covered | Code Example |
+| Module | Topic | What We're Learning | Code Example |
 | :--- | :--- | :--- | :--- |
 | **[17](file:///c:/Users/kkhoie/Downloads/cprog1/17_raii_and_resources/17_raii_and_resources.md)** | **RAII & Resource Management** | Resource Acquisition Is Initialization, Stack unrolling, Custom FD and Mutex RAII guards | [`17_raii_demo.cpp`](file:///c:/Users/kkhoie/Downloads/cprog1/17_raii_and_resources/17_raii_demo.cpp) |
 | **[18](file:///c:/Users/kkhoie/Downloads/cprog1/18_smart_pointers_internals/18_smart_pointers_internals.md)** | **Smart Pointers Under the Hood** | `std::unique_ptr` (zero-cost pointer), `std::shared_ptr` atomic control blocks, building from scratch | [`18_smart_pointers.cpp`](file:///c:/Users/kkhoie/Downloads/cprog1/18_smart_pointers_internals/18_smart_pointers.cpp) |
-| **[19](file:///c:/Users/kkhoie/Downloads/cprog1/19_move_semantics_and_rvalues/19_move_semantics.md)** | **Move Semantics & Rvalues** | Lvalues vs Rvalues (`&&`), `std::move`, Move constructor, stealing heap pointers in $O(1)$ | [`19_move_semantics.cpp`](file:///c:/Users/kkhoie/Downloads/cprog1/19_move_semantics_and_rvalues/19_move_semantics.cpp) |
+| **[19](file:///c:/Users/kkhoie/Downloads/cprog1/19_move_semantics_and_rvalues/19_move_semantics.md)** | **Move Semantics & Rvalues** | Lvalues vs Rvalues (`&&`), `std::move`, Move constructor, stealing heap pointers in O(1) | [`19_move_semantics.cpp`](file:///c:/Users/kkhoie/Downloads/cprog1/19_move_semantics_and_rvalues/19_move_semantics.cpp) |
 | **[20](file:///c:/Users/kkhoie/Downloads/cprog1/20_constexpr_and_compile_time/20_constexpr_metaprogramming.md)** | **Compile-Time Computation** | `constexpr`, `consteval`, Generating lookup tables & CRC32 hashes during compilation | [`20_constexpr_demo.cpp`](file:///c:/Users/kkhoie/Downloads/cprog1/20_constexpr_and_compile_time/20_constexpr_demo.cpp) |
 | **[21](file:///c:/Users/kkhoie/Downloads/cprog1/21_views_and_zero_copy/21_views_and_zero_copy.md)** | **Non-Owning Memory Views** | `std::span`, `std::string_view`, Zero-copy slicing, Avoiding dangling view references | [`21_memory_views.cpp`](file:///c:/Users/kkhoie/Downloads/cprog1/21_views_and_zero_copy/21_memory_views.cpp) |
 | **[22](file:///c:/Users/kkhoie/Downloads/cprog1/22_pmr_and_custom_allocators/22_pmr_and_allocators.md)** | **Polymorphic Allocators (PMR)** | `std::pmr::monotonic_buffer_resource`, Stack-backed vector allocation, Zero-heap containers | [`22_pmr_arena.cpp`](file:///c:/Users/kkhoie/Downloads/cprog1/22_pmr_and_custom_allocators/22_pmr_arena.cpp) |
@@ -51,29 +52,63 @@ Welcome to the **C & Low-Level Systems Programming** curriculum. This repository
 
 ---
 
-### Part 4: High-Level to Low-Level Deconstruction (Working Backwards)
+### Part 4: High-Level to Low-Level Deconstruction (Working Backwards) (¬‿¬)
 
-| Module | Topic | High-Level Feature $\to$ Low-Level Foundation | Code Example |
+| Module | Topic | High-Level Feature -> Low-Level Foundation | Code Example |
 | :--- | :--- | :--- | :--- |
-| **[25](file:///c:/Users/kkhoie/Downloads/cprog1/25_garbage_collection_internals/25_garbage_collection.md)** | **Garbage Collection Under the Hood** | Python/Java/JS auto memory $\to$ Mark-and-Sweep, stack roots, pointer graph traversal | [`25_mark_and_sweep_gc.c`](file:///c:/Users/kkhoie/Downloads/cprog1/25_garbage_collection_internals/25_mark_and_sweep_gc.c) |
-| **[26](file:///c:/Users/kkhoie/Downloads/cprog1/26_dynamic_typing_and_boxed_objects/26_dynamic_typing.md)** | **Dynamic Typing & `PyObject`** | Python `x = 42; x = "str"` $\to$ C Tagged unions, Boxing, NaN-tagging, Type dispatch | [`26_boxed_types_and_tagging.c`](file:///c:/Users/kkhoie/Downloads/cprog1/26_dynamic_typing_and_boxed_objects/26_boxed_types_and_tagging.c) |
-| **[27](file:///c:/Users/kkhoie/Downloads/cprog1/27_async_event_loop_and_coroutines/27_async_event_loop.md)** | **Async/Await & Event Loops** | JS Promises / Python `async def` $\to$ Non-blocking I/O, Callbacks, Coroutine state machines | [`27_micro_event_loop.c`](file:///c:/Users/kkhoie/Downloads/cprog1/27_async_event_loop_and_coroutines/27_micro_event_loop.c) |
-| **[28](file:///c:/Users/kkhoie/Downloads/cprog1/28_hashmaps_and_dynamic_collections/28_hashmaps_internals.md)** | **Hash Maps & Dictionaries** | Python `dict` / JS `Map` $\to$ Hash math, Open Addressing, Cache line spatial locality | [`28_open_addressing_hashmap.c`](file:///c:/Users/kkhoie/Downloads/cprog1/28_hashmaps_and_dynamic_collections/28_open_addressing_hashmap.c) |
-| **[29](file:///c:/Users/kkhoie/Downloads/cprog1/29_database_indexes_and_btrees/29_database_indexes.md)** | **Databases & B-Tree Indexes** | SQL `SELECT WHERE id = 10` $\to$ 4KB disk page nodes, binary search on disk, Page cache | [`29_page_btree_indexer.c`](file:///c:/Users/kkhoie/Downloads/cprog1/29_database_indexes_and_btrees/29_page_btree_indexer.c) |
-| **[30](file:///c:/Users/kkhoie/Downloads/cprog1/30_http_and_socket_networking/30_http_and_networking.md)** | **Web Frameworks & HTTP Parsers** | Express/FastAPI `@app.get` $\to$ TCP socket file descriptors, zero-copy buffer slicing | [`30_raw_http_parser.c`](file:///c:/Users/kkhoie/Downloads/cprog1/30_http_and_socket_networking/30_raw_http_parser.c) |
-| **[31](file:///c:/Users/kkhoie/Downloads/cprog1/31_jit_compiler_and_dynamic_codegen/31_jit_compilers.md)** | **JIT Compilers (V8 / JVM)** | JavaScript / Java near-native speed $\to$ `mmap(PROT_EXEC)` generating raw CPU machine bytes | [`31_mini_jit_compiler.c`](file:///c:/Users/kkhoie/Downloads/cprog1/31_jit_compiler_and_dynamic_codegen/31_mini_jit_compiler.c) |
-| **[32](file:///c:/Users/kkhoie/Downloads/cprog1/32_grand_unified_software_architecture/32_full_stack_deconstruction.md)** | **Grand Unified Software Stack** | Running `python app.py` $\to$ Complete journey from OS Loader, ELF, libc, VM to Silicon | [`32_system_trace_analyzer.c`](file:///c:/Users/kkhoie/Downloads/cprog1/32_grand_unified_software_architecture/32_system_trace_analyzer.c) |
+| **[25](file:///c:/Users/kkhoie/Downloads/cprog1/25_garbage_collection_internals/25_garbage_collection.md)** | **Garbage Collection Under the Hood** | Python/Java/JS auto memory -> Mark-and-Sweep, stack roots, pointer graph traversal | [`25_mark_and_sweep_gc.c`](file:///c:/Users/kkhoie/Downloads/cprog1/25_garbage_collection_internals/25_mark_and_sweep_gc.c) |
+| **[26](file:///c:/Users/kkhoie/Downloads/cprog1/26_dynamic_typing_and_boxed_objects/26_dynamic_typing.md)** | **Dynamic Typing & `PyObject`** | Python `x = 42; x = "str"` -> C Tagged unions, Boxing, NaN-tagging, Type dispatch | [`26_boxed_types_and_tagging.c`](file:///c:/Users/kkhoie/Downloads/cprog1/26_dynamic_typing_and_boxed_objects/26_boxed_types_and_tagging.c) |
+| **[27](file:///c:/Users/kkhoie/Downloads/cprog1/27_async_event_loop_and_coroutines/27_async_event_loop.md)** | **Async/Await & Event Loops** | JS Promises / Python `async def` -> Non-blocking I/O, Callbacks, Coroutine state machines | [`27_micro_event_loop.c`](file:///c:/Users/kkhoie/Downloads/cprog1/27_async_event_loop_and_coroutines/27_micro_event_loop.c) |
+| **[28](file:///c:/Users/kkhoie/Downloads/cprog1/28_hashmaps_and_dynamic_collections/28_hashmaps_internals.md)** | **Hash Maps & Dictionaries** | Python `dict` / JS `Map` -> Hash math, Open Addressing, Cache line spatial locality | [`28_open_addressing_hashmap.c`](file:///c:/Users/kkhoie/Downloads/cprog1/28_hashmaps_and_dynamic_collections/28_open_addressing_hashmap.c) |
+| **[29](file:///c:/Users/kkhoie/Downloads/cprog1/29_database_indexes_and_btrees/29_database_indexes.md)** | **Databases & B-Tree Indexes** | SQL `SELECT WHERE id = 10` -> 4KB disk page nodes, binary search on disk, Page cache | [`29_page_btree_indexer.c`](file:///c:/Users/kkhoie/Downloads/cprog1/29_database_indexes_and_btrees/29_page_btree_indexer.c) |
+| **[30](file:///c:/Users/kkhoie/Downloads/cprog1/30_http_and_socket_networking/30_http_and_networking.md)** | **Web Frameworks & HTTP Parsers** | Express/FastAPI `@app.get` -> TCP socket file descriptors, zero-copy buffer slicing | [`30_raw_http_parser.c`](file:///c:/Users/kkhoie/Downloads/cprog1/30_http_and_socket_networking/30_raw_http_parser.c) |
+| **[31](file:///c:/Users/kkhoie/Downloads/cprog1/31_jit_compiler_and_dynamic_codegen/31_jit_compilers.md)** | **JIT Compilers (V8 / JVM)** | JavaScript / Java near-native speed -> `mmap(PROT_EXEC)` generating raw CPU machine bytes | [`31_mini_jit_compiler.c`](file:///c:/Users/kkhoie/Downloads/cprog1/31_jit_compiler_and_dynamic_codegen/31_mini_jit_compiler.c) |
+| **[32](file:///c:/Users/kkhoie/Downloads/cprog1/32_grand_unified_software_architecture/32_full_stack_deconstruction.md)** | **Grand Unified Software Stack** | Running `python app.py` -> Complete journey from OS Loader, ELF, libc, VM to Silicon | [`32_system_trace_analyzer.c`](file:///c:/Users/kkhoie/Downloads/cprog1/32_grand_unified_software_architecture/32_system_trace_analyzer.c) |
 
 ---
 
-## How to Compile
+## The Low-Level Mental Model (How RAM Actually Looks!)
+
+Whenever your code runs, the OS gives your program a virtual playground:
+
+```
+High Addresses (0xFFFFFFFF... on 64-bit)
++-------------------------------------------------------+
+| Kernel Space (Hands off! OS only zone)                |
++-------------------------------------------------------+
+| Stack (Grows DOWNWARD!)                               |
+|   - Local variables live here                         |
+|   - Function return addresses                         |
+|                           |                           |
+|                           v                           |
+|                                                       |
+|                           ^                           |
+|                           |                           |
+| Heap (Grows UPWARD!)                                  |
+|   - malloc() / new lives here                         |
++-------------------------------------------------------+
+| BSS Segment (Uninitialized globals = 0)               |
++-------------------------------------------------------+
+| Data Segment (Initialized globals)                    |
++-------------------------------------------------------+
+| Text / Code Segment (Your compiled assembly machine   |
+| instructions + string literals! Read-only!)           |
++-------------------------------------------------------+
+Low Addresses (0x00000000...)
+```
+
+---
+
+## How to Compile and Run
+
+Every single example here is super self-contained! Grab your favorite compiler and let's go! (o゜▽゜)o
 
 ```bash
-# C Programs (Modules 01 - 16, 25 - 32):
-gcc -Wall -Wextra -std=c11 <folder>/<file>.c -o <binary_name>
-./<binary_name>
+# For C programs (Modules 01 - 16, 25 - 32):
+gcc -Wall -Wextra -std=c11 <folder>/<file>.c -o <name>
+./<name>
 
-# C++ Programs (Modules 17 - 24):
-g++ -Wall -Wextra -std=c++20 <folder>/<file>.cpp -o <binary_name>
-./<binary_name>
+# For C++ programs (Modules 17 - 24):
+g++ -Wall -Wextra -std=c++20 <folder>/<file>.cpp -o <name>
+./<name>
 ```

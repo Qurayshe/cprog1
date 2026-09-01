@@ -1,32 +1,31 @@
 # Module 25: Garbage Collection Under the Hood (Working Backwards)
 
-In Python, Java, Go, and JavaScript, you never call `free()`. Memory disappears automatically when you stop using it. How does the runtime engine know which memory is safe to destroy?
+In Python, Java, and JavaScript, you never have to call `free()`. Memory just magically disappears!
+How does the runtime know what memory to throw away? Let's build a Garbage Collector! (●'◡'●)
 
 ---
 
-## 1. High-Level Concept: Automatic Garbage Collection
+## 1. The High-Level Illusion: Automatic Memory
 
-In high-level languages:
 ```javascript
-function createUser() {
-    let user = { name: "Alice", id: 42 }; // Allocated on heap
+function makeUser() {
+    let user = { name: "Alice", id: 42 }; // Heap object
     return user.id;
-} // 'user' is no longer reachable... GC reclaims it!
+} // 'user' is out of scope... GC cleans it up! (*^▽^*)
 ```
 
 ---
 
-## 2. Low-Level Reality: Mark-and-Sweep Garbage Collection
+## 2. Low-Level Reality: Mark-and-Sweep GC
 
-To clean up memory without programmer intervention, a **Tracing Garbage Collector** executes two distinct low-level phases:
+A Tracing Garbage Collector runs in two distinct phases:
 
-### Phase 1: The "Mark" Phase (Graph Traversal from Stack Roots)
-1. The GC looks at the active **Stack Frame** (Module 02). Any local variable containing a pointer is declared a **Root**.
-2. Starting from the Roots, the GC recursively traverses every pointer field inside heap structs (Graph Depth-First Search).
-3. Every visited object has a single header bit set: `obj->is_marked = 1;`.
+### Phase 1: Mark Phase (Graph DFS from Stack Roots)
+1. The GC scans the active **Stack Frame** (Module 02). Any pointer variable on the stack is a **Root**.
+2. It walks the pointer tree starting from the roots and sets a header bit: `obj->is_marked = 1;`.
 
 ```
-[ Active Stack Frame (Roots) ]
+[ Active Stack Roots ]
          |
          v
     [ Object A (marked=1) ] ---> [ Object B (marked=1) ]
@@ -34,17 +33,16 @@ To clean up memory without programmer intervention, a **Tracing Garbage Collecto
                                           x  [ Object C (UNREACHABLE / marked=0) ]
 ```
 
-### Phase 2: The "Sweep" Phase (Linear Heap Cleanup)
-1. The GC iterates linearly through the entire allocated heap memory list (Module 05).
-2. If `obj->is_marked == 1`, the GC resets it (`is_marked = 0`) for the next cycle.
-3. If `obj->is_marked == 0`, **no live stack variable can reach this object** $\to$ the GC calls `free(obj)`!
+### Phase 2: Sweep Phase (Heap Cleanup)
+1. The GC walks the entire allocated heap list.
+2. If `is_marked == 1`: Unmark it for the next round.
+3. If `is_marked == 0`: **Unreachable orphan!** Call `free(obj)`! (o゜▽゜)o
 
-> [!IMPORTANT]
-> **Why "Stop-The-World" Pauses Happen in Java/Go:**
-> While the GC traverses the pointer graph, if another thread modifies a pointer, the GC might accidentally miss a live object and free it! Therefore, the runtime must temporarily freeze all application threads.
+> Why "Stop-The-World" Pauses Happen: (*/ω＼*)
+> If another thread modifies a pointer while the GC is marking, the GC might miss a live object and delete it! So the runtime temporarily pauses all user threads!
 
 ---
 
 ## Hands-On Program
 
-Open and compile [`25_mark_and_sweep_gc.c`](file:///c:/Users/kkhoie/Downloads/cprog1/25_garbage_collection_internals/25_mark_and_sweep_gc.c) to see a complete Mark-and-Sweep Garbage Collector implemented from scratch in pure C.
+Open [`25_mark_and_sweep_gc.c`](file:///c:/Users/kkhoie/Downloads/cprog1/25_garbage_collection_internals/25_mark_and_sweep_gc.c) to see a full Mark-and-Sweep Garbage Collector running in pure C! q(≧▽≦q)

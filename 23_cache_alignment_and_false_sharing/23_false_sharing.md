@@ -1,41 +1,30 @@
 # Module 23: Cache Alignment & False Sharing
 
-In multi-threaded systems, **False Sharing** is one of the most subtle and devastating performance bugs.
+In multi-threaded code, False Sharing is the stealth performance killer that ruins multicore scaling! (●'◡'●)
 
 ---
 
 ## 1. What is False Sharing?
 
-Remember from Module 10: CPUs fetch data in **64-byte Cache Lines**.
-
-If Thread 1 (Core 1) writes to `data.a`, and Thread 2 (Core 2) writes to `data.b`, and both variables happen to sit in the **same 64-byte cache line**:
-- Whenever Core 1 writes, the hardware **Cache Coherence Protocol (MESI)** invalidates the cache line on Core 2!
-- Whenever Core 2 writes, it invalidates the cache line on Core 1!
-- The two CPU cores spend all their time bouncing the cache line across the silicon interconnect instead of doing useful work.
-
-```
-[ Thread 1 (Core 1) ]                            [ Thread 2 (Core 2) ]
-        |                                                 |
-        +------> [ 64-Byte Shared Cache Line: { a, b } ] <+
-                   (Bounces back and forth in cache ping-pong!)
-```
+If Thread 1 (Core 1) writes to `var_a`, and Thread 2 (Core 2) writes to `var_b`, and both live inside the **same 64-byte CPU cache line**:
+- Core 1 writes -> Core 2's cache line is invalidated! (⊙_⊙;)
+- Core 2 writes -> Core 1's cache line is invalidated!
+- The CPU cores waste all their cycles playing cache-line ping-pong! (╯°□°)╯︵ ┻━┻
 
 ---
 
 ## 2. The Solution: `alignas(64)`
 
-Modern C++ provides the `alignas` specifier to force variables onto separate 64-byte cache lines:
-
 ```cpp
-struct PaddedData {
-    alignas(64) uint64_t thread_1_counter; // Offset 0..63
-    alignas(64) uint64_t thread_2_counter; // Offset 64..127
+struct CleanCounters {
+    alignas(64) uint64_t counter_a; // Cache Line 1
+    alignas(64) uint64_t counter_b; // Cache Line 2
 };
 ```
-Now, Core 1 and Core 2 operate on completely independent hardware cache lines with **zero interference**!
+Now both CPU cores run at 100% speed with zero interference! q(≧▽≦q)
 
 ---
 
 ## Hands-On Program
 
-Open and compile [`23_false_sharing_benchmark.cpp`](file:///c:/Users/kkhoie/Downloads/cprog1/23_cache_alignment_and_false_sharing/23_false_sharing_benchmark.cpp) to see how `alignas(64)` eliminates false sharing across concurrent threads.
+Run the benchmark in [`23_false_sharing_benchmark.cpp`](file:///c:/Users/kkhoie/Downloads/cprog1/23_cache_alignment_and_false_sharing/23_false_sharing_benchmark.cpp) to watch cache padding double your multi-threaded throughput! (o゜▽゜)o

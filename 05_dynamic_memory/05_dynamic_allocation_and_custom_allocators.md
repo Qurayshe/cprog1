@@ -1,62 +1,47 @@
 # Module 05: Dynamic Memory Allocation & Custom Allocators
 
-While the Stack is fast and automatically managed, its size is fixed at program startup and variables disappear when functions return. The **Heap** provides dynamically sized, persistent memory across function lifecycles.
+Stack memory is fast, but it vanishes when functions return. The **Heap** is where memory lives as long as you want! (●'◡'●)
 
 ---
 
-## 1. The Standard Dynamic Memory Functions
+## 1. The Standard Dynamic Toolkit (`<stdlib.h>`)
 
-Included from `<stdlib.h>`:
-
-| Function | Signature | Description |
-| :--- | :--- | :--- |
-| `malloc` | `void* malloc(size_t size)` | Allocates `size` uninitialized bytes. Returns `NULL` on failure. |
-| `calloc` | `void* calloc(size_t num, size_t size)` | Allocates and zeroes out `num * size` bytes. |
-| `realloc`| `void* realloc(void *ptr, size_t new_size)` | Resizes an existing block (may move to a new memory address!). |
-| `free`   | `void free(void *ptr)` | Returns memory to the OS heap manager. Passing `NULL` is a safe no-op. |
+- `malloc(size)`: Grabs raw bytes from the heap (uninitialized).
+- `calloc(n, size)`: Grabs bytes and zeroes them out for you! (*^▽^*)
+- `realloc(ptr, new_size)`: Resizes an existing allocation.
+- `free(ptr)`: Returns memory back to the OS.
 
 ---
 
-## 2. Common Low-Level Memory Bugs
+## 2. The Classic Memory Bug Hall of Fame
 
-1. **Memory Leak**: Allocating memory with `malloc` and losing the pointer before calling `free`.
-2. **Dangling Pointer**: A pointer holding the address of memory that has already been `free`'d.
-3. **Use-After-Free (UAF)**: Dereferencing a dangling pointer. This is one of the most common causes of critical security vulnerabilities.
-4. **Double Free**: Calling `free(ptr)` twice on the same address. Causes heap corruption.
-   > **Defensive Rule:** Always set pointers to `NULL` after freeing:
-   > ```c
-   > free(ptr);
-   > ptr = NULL; // Safe!
-   > ```
+1. **Memory Leak:** Allocating and losing the pointer. Memory stays held hostage!
+2. **Dangling Pointer:** A pointer pointing to memory you already freed.
+3. **Use-After-Free (UAF):** Dereferencing a dangling pointer (major security bug!).
+4. **Double Free:** Freeing the same pointer twice. (Always set `ptr = NULL;` after freeing! (*/ω＼*))
 
 ---
 
-## 3. The Power of Arena Allocators (Bump Allocators)
+## 3. The Secret Weapon: Arena Allocators (Bump Allocators)
 
-Calling `malloc` thousands of times per second causes:
-- System call overhead.
-- Heap fragmentation (scattered small holes in memory).
-- Cache misses.
-
-High-performance systems (game engines like Unreal/Unity, compilers, web servers) often use **Arena Allocators**:
-- Pre-allocate one large contiguous chunk of memory (e.g. 1 MB).
-- Allocate by simply incrementing an offset pointer (**"bump" allocation** - essentially $O(1)$ fast).
-- Free **everything at once** in $O(1)$ time by resetting the offset to 0.
+Calling `malloc` thousands of times per second causes heap fragmentation and slow syscalls.
+Game engines and high-perf systems use **Arena Allocators**:
+1. Pre-allocate one big buffer (e.g. 1 MB).
+2. Allocate by simply bumping an offset forward (blazing fast O(1)!).
+3. Free **everything at once** by resetting `offset = 0;`! (o゜▽゜)o
 
 ```
-Arena Memory Block (e.g., 64 KB Buffer)
+Arena Buffer (64 KB):
 +-------------------+--------------------+--------------------------------+
-| Allocation 1 (8B) | Allocation 2 (64B) | Free Space                     |
+| Chunk 1 (8B)      | Chunk 2 (64B)      | Free Unused Space              |
 +-------------------+--------------------+--------------------------------+
-0                   8                    72                               65536
                                          ^
-                                         |
-                                    arena.offset (Bumps forward)
+                                    arena.offset (Bumps forward!)
 ```
 
 ---
 
 ## Hands-On Programs
 
-1. [`05_heap_memory.c`](file:///c:/Users/kkhoie/Downloads/cprog1/05_dynamic_memory/05_heap_memory.c): Dynamic array implementation with resizing (`realloc`), defensive error checking, and cleanup.
-2. [`05_simple_arena.c`](file:///c:/Users/kkhoie/Downloads/cprog1/05_dynamic_memory/05_simple_arena.c): A complete, working, zero-fragmentation Arena Allocator in pure C.
+1. [`05_heap_memory.c`](file:///c:/Users/kkhoie/Downloads/cprog1/05_dynamic_memory/05_heap_memory.c): Safe dynamic array vector implementation.
+2. [`05_simple_arena.c`](file:///c:/Users/kkhoie/Downloads/cprog1/05_dynamic_memory/05_simple_arena.c): A complete, super-fast Arena Allocator in ~70 lines of clean C!
